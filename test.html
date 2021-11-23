@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>img</title>
+    <script src="jquerry.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <img src="home.jpg" alt="" class="home">
+    <img src="chief.jpg" alt="" class="chief">
+    <img src="finance.jpg" alt="" class="finance">
+    <button type="button" name="button" class='expand'> Expand</button>
+    <button type="button" name="button" class'hide'>Hide images</button>
+  </body>
+
+    <script type="text/javascript">
+      $('.expand').click(()=>{
+        $('img').attr('width' , '200px');
+        $('img').attr('opacity' , '0.5');
+        setTimeout(()=>{
+          $('img').attr('width' , '50px');
+          $('img').attr('opacity' , '1');
+        },5000)
+      })
+
+      $('hide').click(()=>{
+        $('img').hide();
+      })
+
+      $('.home').click(()=>{
+        alert('Home Minster')
+      })
+      $('.chief').click(()=>{
+        alert('chief Minster')
+      })
+      $('.finance').click(()=>{
+        alert('Finance Minster')
+      })
+
+    </script>
+  <style media="screen">
+    img{
+      width: 50px;
+    }
+  </style>
+</html>

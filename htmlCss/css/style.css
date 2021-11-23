@@ -1,0 +1,70 @@
+@import url(https://pro.fontawesome.com/releases/v5.10.0/css/all.css);
+@import url(https://fonts.googleapis.com/css2?family=Unica+One&display=swap);
+
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing:border-box;
+    font-family:'Unica One', cursive;
+}
+.section{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #EEEEEE;
+}
+.container{
+    width: 90%;
+    display:block;
+    margin:auto;
+    padding-top: 100px;
+}
+.content-section{
+    float: left;
+    width: 60%;
+}
+.image-section{
+    float:right;
+    width: 40%;
+}
+.image-section img{
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-left: 16px;
+
+}
+.title{
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.content h3{
+    margin-top: 20px;
+    color :#3dbbff;
+    font-size:21px;
+}
+.content p{
+    margin-top:10px;
+    font-size: 18px;
+    line-height: 1.5;
+    color :#3dbbff;
+}
+.button {
+    width: 228px;
+
+    margin-top: 30px;
+}
+.button a{
+    background-color:#3dbbff;
+    padding:12px 40px;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    border : 1px solid #3dbbff;
+    transition: 0.5s;
+}
+.button a:hover{
+    background-color: #EEEEEE;
+    color:#3dbbff;
+
+}
