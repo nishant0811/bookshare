@@ -5,6 +5,10 @@ const _ = require("lowdash")
 const User = require("../models/users");
 
 router.get("/",verify,async(req,res)=>{
+  if(req.auth != "valid"){
+    res.redirect("/login")
+    return;
+  }
   try{
     const user = await User.findOne({username : req.data.username});
     res.render("dashboardR",{username : req.data.username , pendingApproval : user.pendingApproval , requestApproval : user.requestApproval})

@@ -15,7 +15,7 @@ router.get("/" ,verify,(req,res)=>{
   res.render("login");
 })
 
-router.post("/login",async(req,res)=>{
+router.post("/",async(req,res)=>{
   try{
   const {username,password} = req.body;
   const user = await User.findOne({username : username});
@@ -34,7 +34,7 @@ router.post("/login",async(req,res)=>{
 
   const token = await jwt.sign(payload,key,{algorithm : 'HS256'})
   res.cookie("token",token,{httpOnly : true});
-  res.redirect("/")
+  res.redirect("/login")
 }
 catch(e){
   res.send(e.message)

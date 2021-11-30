@@ -6,6 +6,10 @@ const Book = require("../models/books");
 
 router.get("/",verify,async(req,res)=>{
   if(req.auth != "valid"){
+    res.redirect("/login")
+    return;
+  }
+  if(req.auth != "valid"){
     res.redirect("/")
     return;
   }

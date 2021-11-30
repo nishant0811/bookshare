@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 app.use(cookie());
 app.use(express.urlencoded({limit:'5mb',extended: false}));
 app.use(express.static("public"));
-app.use("/", require("./routes/login"))
+app.use("/login", require("./routes/login"))
 app.use("/dashboard",require("./routes/dashboard"));
 app.use("/addBook",require("./routes/addBook"));
 app.use("/logout",require("./routes/logout"));
@@ -21,44 +21,13 @@ app.use("/dashboardR",require("./routes/dashboardR"));
 app.use("/dashboardG",require("./routes/dashboardG"));
 app.use("/dashboardRe",require("./routes/dashboardRe"));
 app.use("/search",require("./routes/search"));
+app.use("/signup" , require("./routes/signup"))
 
 
-app.get("/register",async (req,res)=>{
-  try{
-
-  // const username = "user1";
-  // let password = "user";
-  // const salt = await bycrypt.genSalt(10);
-  // password = await bycrypt.hash(password,salt);
-  //
-  // const user = new User({
-  //   username : username,
-  //   password : password,
-  //   given : [],
-  //   received : [],
-  //   pendingApproval : [],
-  //   requestApproval : []
-  // })
-
-  const username = "user1";
-  let password = "user";
-  const salt = await bycrypt.genSalt(10);
-  password = await bycrypt.hash(password,salt);
-  const user = new User({
-    username : username,
-    password : password,
-    given : [],
-    received : [],
-    pendingApproval : [],
-    requestApproval : []
-  })
-  user.save();
-  res.redirect("/")
-}
-catch(e){
-  res.send(e.message);
-}
+app.get("/" , (req,res)=>{
+  res.render("landingPage")
 })
+
 
 app.get("/reset",async(req,res)=>{
   await User.findOneAndUpdate({username : 'user1'},{pendingApproval : []});

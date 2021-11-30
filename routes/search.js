@@ -4,6 +4,10 @@ const Book = require("../models/books");
 const router = express.Router();
 
 router.post("/",verify,async(req,res)=>{
+  if(req.auth != "valid"){
+    res.redirect("/login")
+    return;
+  }
   try{
     const items = await Book.find({name : {'$regex' : req.body.search , '$options' : 'i'},shared : 1},(err)=>{
       if(err){

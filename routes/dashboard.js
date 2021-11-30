@@ -7,7 +7,7 @@ const uniqid = require("uniqid");
 
 router.get("/" ,verify,async(req,res)=>{
   if(req.auth != "valid"){
-    res.redirect("/")
+    res.redirect("/login")
     return;
   }
   try{

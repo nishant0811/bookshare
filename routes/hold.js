@@ -6,6 +6,10 @@ const User = require("../models/users");
 const uniqid = require("uniqid");
 
 router.get("/:id",verify,async(req,res)=>{
+  if(req.auth != "valid"){
+    res.redirect("/login")
+    return;
+  }
   try{
   let uid = uniqid();
   const bookId = req.params.id;

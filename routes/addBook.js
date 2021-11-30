@@ -9,7 +9,7 @@ const upload = require("../handlers/multer")
 
 router.get("/" ,verify,(req,res)=>{
   if(req.auth != "valid"){
-    res.redirect("/")
+    res.redirect("/login")
     return;
   }
   res.render("addBook" , {username : req.data.username});
